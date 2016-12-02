@@ -35,7 +35,8 @@ def load_slides(fname, slide_marker='---'):
     with open(fname) as f:
         filecontent = f.read()
     return [Slide(content)
-            for content in ('\n' + filecontent).split(slide_marker)]
+            for content in (('\n' if filecontent[0] == '#' else '') +
+                            filecontent).split(slide_marker)]
 
 
 def load_template(fname='template.html'):
@@ -66,7 +67,6 @@ def load_custom_header_modifications(fname=None):
 
 def list_themes():
     context = os.path.dirname(__file__)
-    print(context)
     raw_names = glob.glob(os.path.join(context,
                                        'templates/context/css/theme/*.css'))
     for name in raw_names:
