@@ -29,7 +29,7 @@ class e2eTest(unittest.TestCase):
         with open('example/slides.md') as f:
             mock_fs.files['slides.md'] = StringIO(f.read())
 
-        with mock.patch('remedy.open', mock_fs.open):
+        with mock.patch('remedy.open', mock_fs.open, create=True):
             remedy.main('slides.md')
 
         output = mock_fs.files['presentation.html'].getvalue()
@@ -53,7 +53,7 @@ class e2eTest(unittest.TestCase):
         with open('example/header_mod.html') as f:
             mock_fs.files['header_mod.html'] = StringIO(f.read())
 
-        with mock.patch('remedy.open', mock_fs.open):
+        with mock.patch('remedy.open', mock_fs.open, create=True):
             remedy.main('slides.md', header='header_mod.html')
 
         output = mock_fs.files['presentation.html'].getvalue()
