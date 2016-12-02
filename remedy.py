@@ -39,7 +39,7 @@ def load_slides(fname, slide_marker='---'):
 
 
 def load_template(fname='template.html'):
-    env = jinja2.Environment(loader=jinja2.PackageLoader('md2reveal',
+    env = jinja2.Environment(loader=jinja2.PackageLoader('remedy',
                                                          'templates'))
     logging.info('Loading template from file %s', fname)
     return env.get_template(fname)
