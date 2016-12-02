@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet" href="context/css/reveal.css">
+    <link rel="stylesheet" href="context/css/theme/{{ theme }}.css">
+
+    <link rel="stylesheet" href="context/lib/css/zenburn.css">
+
+    {% if additional_header %}
+    {{ additional_header }}
+    {% endif %}
+
+    <script>
+        // Printing and PDF exports
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'context/css/print/pdf.css' : 'context/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            {% for slidegroup in slides %}
+            {% if slidegroup|length > 1 %}
+                <section>
+                    {% for slide in slidegroup %}
+                <section {% if slide.ismarkdown %}data-markdown{% endif %} {% if slide.classname %}class="{{ slide.classname }}"{% endif %}>
+                    {{ slide.content }}
+                </section>
+                    {% endfor %}
+                </section>
+            {% else %}
+                {% for slide in slidegroup %}
+                <section {% if slide.ismarkdown %}data-markdown{% endif %} {% if slide.classname %}class="{{ slide.classname }}"{% endif %}>
+                    {{ slide.content }}
+                </section>
+                {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="context/lib/js/head.min.js"></script>
+    <script src="context/js/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+            history: true,
+            dependencies: [
+                {src: 'context/plugin/markdown/marked.js'},
+                {src: 'context/plugin/markdown/markdown.js'},
+                {src: 'context/plugin/notes/notes.js', async: true},
+                {src: 'context/plugin/math/math.js'},
+                {src: 'context/plugin/highlight/highlight.js', async: true,
+                    callback: function() {hljs.initHighlightingOnLoad();}},
+                ]
+        });
+    </script>
+</body>
+
+</html>
