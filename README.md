@@ -83,3 +83,8 @@ you find a bug, ideally fix it yourself and send me a pull request.
 Note that there are tests. They should pass after you apply your changes. Also,
 I'm trying to stick to pep8 with respect to code formatting. You should do so
 as well.
+
+## Tests
+
+Remedy has two end to end tests that check the examples in this readme:
+![test results](https://travis-ci.org/igordertigor/remedy.svg?branch=master)
