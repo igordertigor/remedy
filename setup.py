@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name="remedy",
-      version="0.0.2",
+      version="0.0.3",
       author="Ingo Fruend",
       author_email="Ingo.Fruend@twentybn.com",
       description="Yet another markdown to reveal translator",
