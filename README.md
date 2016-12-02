@@ -7,6 +7,8 @@ resulting html document. Specifically, you can pipe in additional header code
 and thus include custom css and javascript. Furthermore, you can have
 individual slides be marked by certain keywords.
 
+Note that remedy requires python3.
+
 
 ## Installation
 
