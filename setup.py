@@ -2,12 +2,19 @@
 
 from setuptools import setup
 
+try:
+    import pypandoc
+    description = pypandoc.convert('README.md', 'rst')
+except ImportError:
+    description = ''
+
+
 setup(name="remedy",
-      version="0.0.4",
+      version="0.0.5",
       author="Ingo Fruend",
       author_email="Ingo.Fruend@twentybn.com",
       description="Yet another markdown to reveal translator",
-      long_description=open('README.md').read(),
+      long_description=description,
       py_modules=['remedy'],
       install_requires=['jinja2==2.8', 'begins==0.9'],
       console_scripts=['remedy = remedy.py'])
