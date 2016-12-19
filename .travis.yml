@@ -1,7 +1,16 @@
 sudo: false
 language: python
 python:
-    - 3.4
-    - 3.5
+- 3.4
+- 3.5
 script:
-    - python -m unittest tests
+- python -m unittest tests
+deploy:
+  provider: pypi
+  user: ingofruend
+  password:
+    secure: vEou3TABnHyUvhU11kooIwrvunXD5Cg7FIBhibs+r2z8oj5ovuRkj1uErNKkKTm87EfuBHra7Ku5aUEsx8WCxtZuuoa31te4sqVvj7FK0a8KIqbLGvweQnRQYxQwJgCCs+Xo95O5i/4vnIWOHZesSg6Pb/YCkGf+Mlq2donLt1p8DF4xyk87IKIQKECOwDWKwlXLbVsu3TM8myp9kndVk0o0r6OfvEi4HKCry18H3UC2tL0mae0DUeB2s9e8g0TXlGsUxis0MNiH/wbgzC1J5FR3BFmhvOtJNTXnkPSMH9yFtpk9DrqVCHDHTQfjCIjB+ANbWYIaMxAcmon3+YDuZ+e9fbE5r0AHcNZcRw84ZNNv+pLcLCMHOMK1/YIcs+2+5qypzyuamn+AeXZe+QQCt4jX1RGZmgfHPeVYh8Q4JLx4zAtU7yDyxx502PB7GJEVEHhDuqbVxJ51UhauYyjSp1++XtFUZs53dUsPHWpNkgDecmUP3NGZoJpXCMjNmMGwerveSF0oznAxaSobMgwHj7KCvufzh8s3MXz23U9uRRXaa9wp7ZKfA9NxQmr3OWlq0GBbVwDmW2tP0HGBsuWYAad3/3HfU3+yNcygKW6yrGwszjSBJaIB80x1mCvDxaD+/Rgn/CH90QGEh6ohfPFGT/hCUqdORcCY1VoUlunri0g=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: igordertigor/remedy
