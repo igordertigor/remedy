@@ -10,7 +10,7 @@ except ImportError:
 
 
 setup(name="remedy",
-      version="0.0.5",
+      version="0.0.6",
       author="Ingo Fruend",
       author_email="Ingo.Fruend@twentybn.com",
       description="Yet another markdown to reveal translator",
