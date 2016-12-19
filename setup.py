@@ -17,4 +17,4 @@ setup(name="remedy",
       long_description=description,
       py_modules=['remedy'],
       install_requires=['jinja2==2.8', 'begins==0.9'],
-      console_scripts=['remedy = remedy.py'])
+      console_scripts=['remedy'])
